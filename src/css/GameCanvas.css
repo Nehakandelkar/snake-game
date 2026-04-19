@@ -1,0 +1,124 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* canvas */
+.game-canvas {
+  image-rendering: pixelated;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* dark theme */
+.game-container.dark {
+  color: #e2e8f0;
+}
+
+.game-container.dark .game-canvas {
+  background:
+    linear-gradient(180deg, #0b1220, #0f172a);
+  border: 2px solid #334155;
+}
+
+/* light theme */
+.game-container.light {
+  color: #0f172a;
+}
+
+.game-container.light .game-canvas {
+  background:
+    linear-gradient(180deg, #f8fafc, #e2e8f0);
+  border: 2px solid #cbd5e1;
+}
+
+/* theme toggle */
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: background 0.3s ease;
+}
+
+.game-container.dark .theme-toggle {
+  background: #334155;
+}
+
+.game-container.light .theme-toggle {
+  background: #e2e8f0;
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  background: white;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.game-container.dark .theme-toggle::before {
+  transform: translateX(30px);
+  background: #020617;
+}
+
+.icon {
+  font-size: 14px;
+  width: 50%;
+  text-align: center;
+  z-index: 1;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.icon.active {
+  opacity: 1;
+}
+
+/* scoreboard */
+.scoreboard {
+  text-align: center;
+}
+
+.restart-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.game-container.dark .restart-btn {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  color: #022c22;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
+}
+
+.game-container.dark .restart-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.game-container.light .restart-btn {
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  color: white;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.28);
+}
+
+.game-container.light .restart-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
